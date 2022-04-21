@@ -124,8 +124,18 @@ class _StartScreenState extends State<StartScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget> [
                     FlatButton(
-                      onPressed: () {},
-                      child: Text('zaa', style: TextStyle( fontSize: 18, color: Colors.white)
+                      onPressed: () {
+                        setState(() {
+                          if(_currentPage < 1){
+                            _currentPage++;
+                          }
+                          else{
+                            _currentPage = 0;
+                          }
+                          _pageController.animateToPage(_currentPage, duration: Duration(milliseconds: 300), curve: Curves.easeIn);
+                        });
+                      },
+                      child: Text('', style: TextStyle( fontSize: 18, color: Colors.white)
                         ,),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15),
@@ -156,7 +166,7 @@ class SlideDots extends StatelessWidget{
     return AnimatedContainer(
       duration: Duration(
           milliseconds:  150),
-      margin: const EdgeInsets.symmetric(vertical: 10),
+      margin: const EdgeInsets.symmetric(horizontal: 5),
       height: isActive ? 12:8,
       width: isActive ? 12:8,
       decoration: BoxDecoration(
@@ -245,7 +255,10 @@ final slideList = [
       imageUrl: 'images/apple.png',
       title: 'lorem',
       description: 'lorem ipsum'),
-  Slide(imageUrl: 'images/orange.png', title: 'ipsum', description: 'kdsflsdf')
+  Slide(
+      imageUrl: 'images/orange.png',
+      title: 'ipsum',
+      description: 'kdsflsdf')
 
 
 ];
