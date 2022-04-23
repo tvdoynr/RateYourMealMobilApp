@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.flutterapp.flutter_app1">
+    package="com.mertdincer.rate_your_meal">
    <application
-        android:label="flutter_app1"
+        android:label="rate_your_meal"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
